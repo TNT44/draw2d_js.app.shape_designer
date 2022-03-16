@@ -1,5 +1,4 @@
 /* jshint evil:true */
-// La barre d'icone
 
 shape_designer.Toolbar = Class.extend({
     
@@ -37,7 +36,6 @@ shape_designer.Toolbar = Class.extend({
         this.html.append(this.toolbarDiv);
 
 
-        //Zone undo /redo
         // Inject the UNDO Button and the callbacks
         //
         buttonGroup=$('<div class="btn-group" title="Undo / Redo"></div>');
@@ -89,66 +87,6 @@ shape_designer.Toolbar = Class.extend({
         },this));
         Mousetrap.bind("space", $.proxy(function (event) {this.selectButton.click();return false;},this));
 
-        // un essai
-        // rectangle
-        this.selecRect = $('<label data-toggle="tooltip" title="Rectangle <span class=\'highlight\'> [ R ]</span>" class="btn btn-sm btn-primary active"><input type="radio" name="selected_tool" id="toolrect" class="btn-default btn" ><img src="./assets/images/tools/POLYGON_DIAGONALS_032.png"></label>');
-        buttonGroup.append(this.selecRect);
-        this.selecRect.on("click",$.proxy(function(){
-             this.view.installEditPolicy(new  shape_designer.policy.RectangleToolPolicy());
-        },this));
-        Mousetrap.bind(["R","r"], $.proxy(function (event) {
-            this.selecRect.click();
-            return false;
-        },this));
-
-        //cercle
-        this.selecCircle = $('<label data-toggle="tooltip" title="Circle <span class=\'highlight\'> [ C ]</span>" class="btn btn-sm btn-primary active"><input type="radio" name="selected_tool" id="toolcircle" class="btn-default btn" ><img src="./assets/images/tools/CIRCLE_1_032.png"></label>');
-        buttonGroup.append(this.selecCircle);
-        this.selecCircle.on("click",$.proxy(function(){
-             this.view.installEditPolicy(new  shape_designer.policy.CircleToolPolicy());
-        },this));
-        Mousetrap.bind(["C","c"], $.proxy(function (event) {
-            this.selecCircle.click();
-            return false;
-        },this));
-
-         //line
-        this.selecLine = $('<label data-toggle="tooltip" title="Line <span class=\'highlight\'> [ L ]</span>" class="btn btn-sm btn-primary active"><input type="radio" name="selected_tool" id="toolline" class="btn-default btn" ><img src="./assets/images/tools/LINE_032.png"></label>');
-        buttonGroup.append(this.selecLine);
-        this.selecLine.on("click",$.proxy(function(){
-             this.view.installEditPolicy(new  shape_designer.policy.LineToolPolicy());
-        },this));
-        Mousetrap.bind(["L","l"], $.proxy(function (event) {
-            this.selecLine.click();
-            return false;
-        },this));
-
-         //text
-        this.selecText = $('<label data-toggle="tooltip" title="Text <span class=\'highlight\'> [ T ]</span>" class="btn btn-sm btn-primary active"><input type="radio" name="selected_tool" id="tooltext" class="btn-default btn" ><img src="./assets/images/tools/TEXT_032.png"></label>');
-        buttonGroup.append(this.selecText);
-        this.selecText.on("click",$.proxy(function(){
-             this.view.installEditPolicy(new  shape_designer.policy.TextToolPolicy());
-        },this));
-        Mousetrap.bind(["T","t"], $.proxy(function (event) {
-            this.selecText.click();
-            return false;
-        },this));
-
-         //port
-        this.selecPort = $('<label data-toggle="tooltip" title="Port <span class=\'highlight\'> [ P ]</span>" class="btn btn-sm btn-primary active"><input type="radio" name="selected_tool" id="toolport" class="btn-default btn" ><img src="./assets/images/tools/PORT_032.png"></label>');
-        buttonGroup.append(this.selecPort);
-        this.selecPort.on("click",$.proxy(function(){
-             this.view.installEditPolicy(new  shape_designer.policy.PortToolPolicy());
-        },this));
-        Mousetrap.bind(["P","p"], $.proxy(function (event) {
-            this.selecPort.click();
-            return false;
-        },this));
-
-
-
-        // le vrai code
-        /*
         this.shapeButton = $(
                              '<label id="tool_shape" class="dropdown btn btn-sm btn-primary">'+
                              '    <input id="tool_shape_button"  data-policy="shape_designer.policy.RectangleToolPolicy" class="btn-default btn"  type="radio">'+
@@ -198,10 +136,7 @@ shape_designer.Toolbar = Class.extend({
             $('*[data-policy="shape_designer.policy.LineToolPolicy"]').click();
             return false;
         },this));
-        */
 
-        // apres la zone de dessin
-        // partie union, difference, intersection 
         this.unionButton = $('<label data-toggle="tooltip" title="Polygon Union <span class=\'highlight\'> [ U ]</span>" class="btn btn-sm btn-primary"><input type="radio" name="selected_tool" id="tool1" class="btn-default btn" ><img src="./assets/images/toolbar_union.png"></label>');
         buttonGroup.append(this.unionButton);
         this.unionButton.on("click",$.proxy(function(){
@@ -227,7 +162,6 @@ shape_designer.Toolbar = Class.extend({
        Mousetrap.bind(["I", "i"], $.proxy(function (event) {this.intersectionButton.click();return false;},this));
 
 
-       // la zone File Operations
         var buttonGroup=$("<div class='btn-group'  title='File Operations'></div>");
         this.toolbarDiv.append(buttonGroup);
 
@@ -266,7 +200,6 @@ shape_designer.Toolbar = Class.extend({
         },this));
         Mousetrap.bind("ctrl+n", $.proxy(function (event) {this.undoButton.click();return false;},this));
 
-        // zone test dans coding
         buttonGroup=$('<div class="btn-group"  title="Test and Coding"></div>');
         this.toolbarDiv.append(buttonGroup);
         this.testButton  = $('<button  data-toggle="tooltip" title="Test</span>" class=\"btn btn-default\" ><img src="./assets/images/toolbar_test.png"></button>');

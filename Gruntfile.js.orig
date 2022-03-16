@@ -11,7 +11,6 @@ module.exports = function (grunt) {
         concat: {
             options: {
             },
-            /*
             libs: {
                 src: [
                     './bower_components/draw2d/dist/shifty.js',
@@ -43,14 +42,6 @@ module.exports = function (grunt) {
                     './bower_components/octokat/dist/octokat.js',
                     './bower_components/toastr/toastr.min.js',
                     './lib/Blob.js'
-                ],
-                dest: './dist/assets/javascript/dependencies.js'
-            },
-            */
-             // add .. few problems to rebuild from scratch
-            cpdep: {
-                src: [
-                    './temp/dependencies.js'
                 ],
                 dest: './dist/assets/javascript/dependencies.js'
             },
@@ -143,14 +134,6 @@ module.exports = function (grunt) {
                 src: ['**/*.html', 'assets/images/**/*', 'assets/shapes/**/*'],
                 dest: 'dist/'
             },
-            // add .. few problems to rebuild from scratch
-            thelib: {
-                expand: true,
-                cwd: 'temp/lib/',
-                src: '**/*.*',
-                dest: 'dist/lib/'
-            },
-
             awesome:{
                 expand: true,
                 cwd: 'bower_components/components-font-awesome/',
